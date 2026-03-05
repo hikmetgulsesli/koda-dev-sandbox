@@ -3,25 +3,77 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Neon DevTool Palette - Design Tokens */
+  --neon-cyan: #00f0ff;
+  --neon-magenta: #ff00ff;
+  --neon-lime: #39ff14;
+  --neon-amber: #ffbf00;
+  --neon-red: #ff3131;
+  
+  /* Background Colors */
+  --bg-dark: #0a0a0f;
+  --bg-panel: #12121a;
+  --bg-elevated: #1a1a25;
+  
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0b0;
+  --text-muted: #606070;
+  
+  /* Border Colors */
+  --border-subtle: #2a2a3a;
+  --border-focus: var(--neon-cyan);
+  
+  /* Semantic Variables */
+  --background: var(--bg-dark);
+  --foreground: var(--text-primary);
+  
+  /* Font Families */
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-[var(--border-subtle)];
   }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  
+  body {
+    @apply bg-[var(--background)] text-[var(--foreground)];
+    font-family: var(--font-body);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  
+  .neon-text-cyan {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+  }
+  
+  .neon-text-magenta {
+    color: var(--neon-magenta);
+    text-shadow: 0 0 10px var(--neon-magenta), 0 0 20px var(--neon-magenta);
+  }
+  
+  .neon-border-cyan {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 10px var(--neon-cyan), inset 0 0 5px var(--neon-cyan);
+  }
+  
+  .panel {
+    @apply bg-[var(--bg-panel)] rounded-lg border border-[var(--border-subtle)];
+  }
+  
+  .elevated {
+    @apply bg-[var(--bg-elevated)] rounded-lg border border-[var(--border-subtle)];
   }
 }
