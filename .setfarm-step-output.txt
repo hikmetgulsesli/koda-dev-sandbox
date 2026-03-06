@@ -1,0 +1,23 @@
+STATUS: done
+STORY_BRANCH: ce6f3019-US-006
+PR_URL: https://github.com/hikmetgulsesli/nakliye-crm/pull/8
+CHANGES: 
+- Updated customer detail page with tabbed interface (Overview, Activities, Quotations, History)
+- Added ActivityTimeline component with icons and badges for chronological activity display
+- Added ActivityForm component for creating new activities
+- Added AuditHistory component with diff view for tracking changes
+- Created UI components: Button, Badges (StatusBadge, PotentialBadge, ActivityTypeBadge, OutcomeBadge), Tabs, Input, Label, Select
+- Implemented quick stats cards showing Son Görüşme, Son Teklif, Aktivite Sayısı, Temsilci
+- Added responsive card-based layout for customer information sections
+- Implemented activity creation with automatic refresh of activities and customer data
+- Added tests for customer detail page
+
+TESTS:
+- Loading state renders correctly
+- Customer details display after loading
+- Error message shown when customer not found
+- All four tabs present and functional
+- Quick stats cards display correctly
+- Transport preferences visible in overview
+- Responsive card layout verified
+- Edit button present and functional

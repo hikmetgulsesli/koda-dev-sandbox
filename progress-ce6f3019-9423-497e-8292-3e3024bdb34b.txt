@@ -1,0 +1,92 @@
+=== US-002: Application shell, layout and user management ===
+COMPLETED: 2026-03-06T01:59:00+03:00
+
+FILES CHANGED:
+- src/app/(dashboard)/layout.tsx - Main dashboard layout with sidebar and header
+- src/app/(dashboard)/users/page.tsx - User management page
+- src/app/(dashboard)/dashboard/page.tsx - Dashboard page
+- src/app/(dashboard)/customers/page.tsx - Customers placeholder
+- src/app/(dashboard)/quotations/page.tsx - Quotations placeholder
+- src/app/(dashboard)/activities/page.tsx - Activities placeholder
+- src/app/(dashboard)/reports/page.tsx - Reports page (admin only)
+- src/app/(dashboard)/settings/page.tsx - Settings page (admin only)
+- src/app/(dashboard)/profile/page.tsx - Profile page
+- src/app/login/page.tsx - Login page
+- src/components/layout/sidebar.tsx - Responsive sidebar with role-based navigation
+- src/components/layout/header.tsx - Header with user dropdown and mobile menu
+- src/components/layout/breadcrumb.tsx - Breadcrumb navigation
+- src/components/users/users-table.tsx - User management data table
+- src/components/users/user-form.tsx - Create/edit user forms
+- src/components/ui/* - UI component library (button, dialog, input, etc.)
+- src/app/api/users/route.ts - User API endpoints
+- src/app/api/users/[id]/route.ts - Individual user API endpoints
+- src/app/api/auth/login/route.ts - Login endpoint
+- src/app/api/auth/logout/route.ts - Logout endpoint
+- src/lib/db/users.ts - Database layer for users
+- src/lib/auth/session.ts - JWT session management
+- src/middleware.ts - Auth middleware
+- src/types/index.ts - TypeScript types
+
+KEY DECISIONS:
+- Used JWT tokens stored in httpOnly cookies for authentication
+- Implemented role-based navigation (admin sees Reports, Users, Settings)
+- Used better-sqlite3 for database with lazy initialization
+- Implemented soft delete using is_active flag
+- Created reusable UI components following shadcn/ui patterns
+- Used React Hook Form with Zod validation
+
+DEPENDENCIES ADDED:
+- bcryptjs, jose - Password hashing and JWT
+- @radix-ui/* - UI primitive components
+- better-sqlite3 - SQLite database
+- lucide-react - Icon library
+- vitest, @testing-library/* - Testing
+
+TESTS:
+- src/components/layout/__tests__/breadcrumb.test.tsx - Breadcrumb navigation tests
+- src/components/layout/__tests__/sidebar.test.tsx - Sidebar component tests
+- src/components/users/__tests__/users-table.test.tsx - User management page tests
+- All 38 tests passing
+
+BRANCH: ce6f3019-US-002
+PR_URL: https://github.com/hikmetgulsesli/nakliye-crm/pull/3
+
+=== US-008: Quotation list, form and detail pages ===
+COMPLETED: 2026-03-06T02:35:00+03:00
+
+FILES CHANGED:
+- src/types/quotations.ts - Quotation types (Quotation, QuotationWithRelations, QuotationRevision, CreateQuotationInput, UpdateQuotationInput)
+- src/lib/db/quotations.ts - Database layer for quotations with CRUD operations
+- src/lib/db/quotation-revisions.ts - Database layer for tracking quotation revisions
+- src/app/api/quotations/route.ts - API routes for list and create
+- src/app/api/quotations/[id]/route.ts - API routes for get, update, delete
+- src/app/api/quotations/[id]/revisions/route.ts - API route for fetching revisions
+- src/app/api/quotations/__tests__/route.test.ts - API route tests
+- src/components/quotations/quotations-table.tsx - Data table with search, status filter
+- src/components/quotations/quotation-form.tsx - Create/edit form with all sections
+- src/components/quotations/revision-history.tsx - Display revision diffs
+- src/components/quotations/__tests__/quotations-table.test.tsx - Component tests
+- src/components/ui/badges.tsx - StatusBadge, PotentialBadge, CurrencyBadge components
+- src/app/(dashboard)/quotations/page.tsx - List page
+- src/app/(dashboard)/quotations/new/page.tsx - Create page
+- src/app/(dashboard)/quotations/[id]/page.tsx - Detail page with timeline
+- src/app/(dashboard)/quotations/[id]/edit/page.tsx - Edit page
+- src/components/audit/audit-history.tsx - Audit log display component
+
+KEY DECISIONS:
+- Auto-generated quote numbers in format TKF-YYYY-XXXX
+- Revision tracking with field-level diff stored as JSON
+- Conditional loss_reason field only shown when status is Kaybedildi
+- Searchable customer dropdown in create form
+- Print-friendly layout with print:border-2 classes
+- Admin-only delete permission for quotations
+
+DEPENDENCIES ADDED:
+- None (used existing stack)
+
+TESTS:
+- src/app/api/quotations/__tests__/route.test.ts - API route tests
+- src/components/quotations/__tests__/quotations-table.test.tsx - Component tests
+
+BRANCH: ce6f3019-US-008
+PR_URL: https://github.com/hikmetgulsesli/nakliye-crm/pull/7
