@@ -1,23 +1,5 @@
 STATUS: done
-STORY_BRANCH: ce6f3019-US-006
-PR_URL: https://github.com/hikmetgulsesli/nakliye-crm/pull/8
-CHANGES: 
-- Updated customer detail page with tabbed interface (Overview, Activities, Quotations, History)
-- Added ActivityTimeline component with icons and badges for chronological activity display
-- Added ActivityForm component for creating new activities
-- Added AuditHistory component with diff view for tracking changes
-- Created UI components: Button, Badges (StatusBadge, PotentialBadge, ActivityTypeBadge, OutcomeBadge), Tabs, Input, Label, Select
-- Implemented quick stats cards showing Son Görüşme, Son Teklif, Aktivite Sayısı, Temsilci
-- Added responsive card-based layout for customer information sections
-- Implemented activity creation with automatic refresh of activities and customer data
-- Added tests for customer detail page
-
-TESTS:
-- Loading state renders correctly
-- Customer details display after loading
-- Error message shown when customer not found
-- All four tabs present and functional
-- Quick stats cards display correctly
-- Transport preferences visible in overview
-- Responsive card layout verified
-- Edit button present and functional
+STORY_BRANCH: a1b2c3d4-US-005
+PR_URL: https://github.com/hikmetgulsesli/koda-dev-sandbox/pull/8
+CHANGES: Implemented Quotation Management API with Prisma ORM. Created database schema with Customer, Quotation, and QuotationRevision models. Built REST API endpoints for CRUD operations. Implemented auto-generated quote numbers (TKF-YYYY-XXXX format), revision history tracking for all changes, status workflow (PENDING/WON/LOST), and auto-update of customer.lastQuoteDate on quotation creation.
+TESTS: All 20 existing tests pass. Lint, build, and typecheck all pass.
