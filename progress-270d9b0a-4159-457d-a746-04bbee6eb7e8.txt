@@ -1,0 +1,16 @@
+=== US-001: Project setup and design tokens ===
+COMPLETED: 2026-03-15T16:17:00Z
+FILES CHANGED:
+  - index.html (new) - Semantic HTML5 structure with header, main, footer
+  - css/style.css (new) - Design tokens as CSS custom properties
+  - js/app.js (new) - Empty JavaScript module entry point
+
+KEY DECISIONS:
+  - Used semantic HTML5 elements (header, main, footer, section, article)
+  - Implemented comprehensive CSS custom properties for all design tokens
+  - System font stack for optimal performance and native feel
+  - 8px base spacing unit with consistent scale
+  - BEM-like naming for CSS classes
+  - Mobile-first responsive design with breakpoint at 600px
+
+DEPENDENCIES ADDED: None (vanilla HTML/CSS/JS project)

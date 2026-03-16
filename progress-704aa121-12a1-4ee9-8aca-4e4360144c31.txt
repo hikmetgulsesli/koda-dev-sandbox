@@ -1,0 +1,5 @@
+=== US-004: Ship Model & Validation ===
+COMPLETED: 2026-03-11T19:24:00+03:00
+FILES CHANGED: ship/ship.ts, ship/index.ts, __tests__/ship.test.ts
+KEY DECISIONS: Used TypeScript for type safety; implemented immutable rotateShip; used Set for efficient hit tracking
+DEPENDENCIES ADDED: None

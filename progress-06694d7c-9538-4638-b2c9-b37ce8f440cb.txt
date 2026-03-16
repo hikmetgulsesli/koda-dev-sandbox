@@ -1,0 +1,92 @@
+=== US-001: Project setup and design tokens ===
+COMPLETED: 2026-03-09T16:45:00+03:00
+FILES_CHANGED:
+  - src/app/globals.css (updated with design tokens)
+  - src/app/layout.tsx (updated with fonts and metadata)
+  - src/app/page.tsx (new landing page)
+  - stitch/design-tokens.css (fixed invalid syntax)
+  - jest.config.ts (new)
+  - jest.setup.ts (new)
+  - src/__tests__/setup.test.tsx (new)
+  - package.json (added test script)
+KEY_DECISIONS:
+  - Used Tailwind CSS v4 with @import syntax
+  - Imported design-tokens.css from stitch directory
+  - Set dark theme as default for Turkish market
+  - Used Space Grotesk for display and DM Sans for body text
+  - Added Jest for testing with jsdom environment
+DEPENDENCIES_ADDED:
+  - jest, @testing-library/react, @testing-library/jest-dom
+  - @testing-library/user-event, jest-environment-jsdom
+  - ts-jest, @types/jest
+
+=== US-006: TTS and Voice module ===
+COMPLETED: 2026-03-09T17:20:00+03:00
+FILES_CHANGED:
+  - prisma/schema.prisma (Voice, CustomVoice models, enums)
+  - src/app/api/voices/route.ts (GET endpoint with filtering)
+  - src/components/voice/VoiceCard.tsx
+  - src/components/voice/VoiceCategoryTabs.tsx
+  - src/components/voice/VoiceCustomizationPanel.tsx
+  - src/components/voice/VoiceCloningUpload.tsx
+  - src/components/voice/index.ts
+  - src/components/wizard/VoiceWizard.tsx
+  - src/components/ui/switch.tsx
+  - src/app/wizard/voice/page.tsx
+  - src/types/voice.ts
+  - src/lib/seed-voices.ts
+  - src/__tests__/voice.test.tsx
+KEY_DECISIONS:
+  - VoiceCategory enum: MALE/FEMALE/NEUTRAL with Turkish labels
+  - VoiceProvider enum: ELEVENLABS/EDGE_TTS/CUSTOM
+  - Speed range: 0.5x to 2.0x with 0.1 step
+  - Pitch range: -20 to +20 with integer steps
+  - Voice cloning restricted to Pro/Business plans
+  - 20+ predefined voices with Turkish focus
+DEPENDENCIES_ADDED: None (used existing lucide-react, Tailwind)
+PR_URL: https://github.com/hikmetgulsesli/reelforge/pull/4
+
+=== US-016: Video Wizard Step 4 - Voice ===
+COMPLETED: 2026-03-09T19:50:00+03:00
+FILES_CHANGED:
+  - src/app/wizard/video/voice/page.tsx (new voice selection page)
+  - src/components/wizard/VoiceWizard.tsx (new voice wizard component)
+  - src/components/wizard/WizardComponents.tsx (shared wizard components)
+  - src/components/wizard/AssetsStep.tsx (assets step component)
+  - src/components/wizard/index.ts (component exports)
+  - src/components/ui/slider.tsx (new slider component)
+  - src/components/ui/switch.tsx (new switch component)
+  - src/lib/wizard-store.ts (new wizard state store)
+  - src/types/voice.ts (voice types and schemas)
+KEY_DECISIONS:
+  - Used lucide-react icons instead of MUI
+  - Voice speed range: 0.5x to 2.0x with 0.1 step
+  - Pitch range: -20 to +20 with integer steps
+  - Two voice providers: ElevenLabs (premium) and Edge TTS (free)
+  - Voice cloning UI placeholder for Pro/Business plans
+  - Used Zustand for wizard state management
+DEPENDENCIES_ADDED: None (using existing lucide-react, zustand)
+PR_URL: https://github.com/hikmetgulsesli/reelforge/pull/8
+
+=== US-023: Content Calendar Page ===
+COMPLETED: 2026-03-09T21:41:00+03:00
+FILES_CHANGED:
+  - src/app/calendar/page.tsx (new calendar page)
+  - src/components/calendar/CalendarPage.tsx (main calendar component)
+  - src/components/calendar/index.ts (component exports)
+  - src/lib/calendar-store.ts (Zustand store for calendar state)
+  - src/types/calendar.ts (TypeScript types for calendar)
+  - src/components/ui/button.tsx (updated button variants)
+  - src/__tests__/calendar.test.tsx (calendar tests)
+KEY_DECISIONS:
+  - Used Tailwind CSS with design tokens from stitch
+  - Implemented month view with calendar grid
+  - Added drag-and-drop video rescheduling
+  - Created Quick Add Modal for scheduling
+  - Used Zustand for state management
+  - Added demo data for scheduled videos
+  - Implemented view toggle (month/week/list)
+  - Added status filter dropdown and search
+  - Sidebar with upcoming posts
+DEPENDENCIES_ADDED: None (used existing lucide-react, zustand, tailwind)
+PR_URL: https://github.com/hikmetgulsesli/reelforge/pull/23

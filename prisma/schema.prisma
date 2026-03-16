@@ -1,0 +1,56 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Customer {
+  id             String      @id @default(uuid())
+  name           String
+  email          String      @unique
+  phone          String?
+  address        String?
+  lastQuoteDate  DateTime?
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+  quotations     Quotation[]
+}
+
+model Quotation {
+  id              String               @id @default(uuid())
+  quoteNumber     String               @unique
+  customerId      String
+  customer        Customer             @relation(fields: [customerId], references: [id])
+  title           String
+  description     String?
+  amount          Decimal              @db.Decimal(10, 2)
+  currency        String               @default("USD")
+  status          QuotationStatus      @default(PENDING)
+  validUntil      DateTime?
+  createdAt       DateTime             @default(now())
+  updatedAt       DateTime             @updatedAt
+  revisions       QuotationRevision[]
+}
+
+model QuotationRevision {
+  id            String    @id @default(uuid())
+  quotationId   String
+  quotation     Quotation @relation(fields: [quotationId], references: [id], onDelete: Cascade)
+  revisionNumber Int
+  changes       String    // JSON string of changes made
+  createdBy     String?
+  createdAt     DateTime  @default(now())
+  
+  @@unique([quotationId, revisionNumber])
+}
+
+enum QuotationStatus {
+  PENDING
+  WON
+  LOST
+}

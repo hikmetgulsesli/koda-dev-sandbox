@@ -1,0 +1,27 @@
+=== US-005: Quotation Management API ===
+COMPLETED: 2026-03-17T01:22:00+03:00
+FILES CHANGED:
+- prisma/schema.prisma - Database schema with Customer, Quotation, QuotationRevision models
+- prisma.config.ts - Prisma configuration
+- lib/prisma.ts - Prisma client singleton with PostgreSQL adapter
+- utils/quoteNumber.ts - Quote number generator utility
+- app/api/quotations/route.ts - Quotation list and create endpoints
+- app/api/quotations/[id]/route.ts - Single quotation CRUD endpoints
+- app/api/quotations/[id]/revisions/route.ts - Revision history endpoint
+- app/api/customers/route.ts - Customer CRUD endpoints
+- components/activities/ActivityTimeline.tsx - Fixed lint error
+
+KEY DECISIONS:
+- Used Prisma ORM 7 with PostgreSQL driver adapter (@prisma/adapter-pg)
+- Quote number format: TKF-YYYY-XXXX (e.g., TKF-2026-0001)
+- Revision history stored as JSON in QuotationRevision table
+- Status workflow: PENDING (default) -> WON or LOST
+- Customer.lastQuoteDate auto-updated on quotation creation
+
+DEPENDENCIES ADDED:
+- prisma (dev)
+- @prisma/client
+- @prisma/adapter-pg
+- pg
+
+PR: https://github.com/hikmetgulsesli/koda-dev-sandbox/pull/8
