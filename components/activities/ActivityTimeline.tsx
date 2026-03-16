@@ -42,7 +42,7 @@ export default function ActivityTimeline({ activities, onDelete }: ActivityTimel
       <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-700" />
       
       <ul className="space-y-4">
-        {activities.map((activity, index) => (
+        {activities.map((activity) => (
           <li key={activity.id} className="relative pl-14">
             {/* Timeline dot with icon */}
             <div className="absolute left-0 w-12 h-12 rounded-full bg-gray-800 border-2 border-gray-600 flex items-center justify-center text-xl z-10">

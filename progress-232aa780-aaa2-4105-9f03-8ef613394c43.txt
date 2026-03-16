@@ -1,0 +1,28 @@
+=== US-004: Snake movement and input handling ===
+COMPLETED: 2026-03-07T23:22:00+03:00
+FILES CHANGED:
+  - snake/types.ts (new)
+  - snake/index.ts (new)
+  - hooks/useInput.ts (new)
+  - hooks/useGameLoop.ts (new)
+  - hooks/index.ts (new)
+  - __tests__/useInput.test.tsx (new)
+  - __tests__/useGameLoop.test.tsx (new)
+  - __tests__/snakeTypes.test.ts (new)
+
+KEY DECISIONS:
+  - Implemented direction queue (max 2 items) to handle rapid successive inputs
+  - Created two game loop variants: setInterval-based for simplicity, RAF-based for smooth rendering
+  - Used capture phase for keyboard events to minimize input latency
+  - Direction validation prevents reversing into self (snake can't go directly backwards)
+
+DEPENDENCIES ADDED: None (used existing React hooks)
+
+ACCEPTANCE CRITERIA:
+  ✓ WASD and Arrow keys control snake direction
+  ✓ Snake moves automatically each tick based on speed
+  ✓ Game loop runs at 60fps with smooth movement option
+  ✓ Direction queue prevents rapid illegal turns
+  ✓ Input latency under 50ms
+  ✓ Tests for input handling and movement pass (104 tests total)
+  ✓ Typecheck passes

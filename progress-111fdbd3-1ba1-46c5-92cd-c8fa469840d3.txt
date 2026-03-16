@@ -1,0 +1,22 @@
+=== US-009: Dark Mode Implementation ===
+COMPLETED: 2026-03-11T11:54:00+03:00
+FILES CHANGED:
+  - src/hooks/useDarkMode.ts (new)
+  - src/hooks/useDarkMode.test.ts (new)
+  - src/App.tsx (modified)
+  - src/components/TodoInput.tsx (modified)
+  - src/index.css (modified)
+  - index.html (modified)
+  - tailwind.config.js (new)
+  - postcss.config.js (new)
+  - package.json (modified - added tailwindcss deps)
+KEY DECISIONS:
+  - Used system-preference-based dark mode via matchMedia API
+  - Applied dark class to html element for Tailwind dark mode
+  - Custom checkbox styling with CSS (not Tailwind forms plugin)
+  - Integrated Tailwind CSS v4 with @tailwindcss/postcss
+DEPENDENCIES ADDED:
+  - tailwindcss
+  - @tailwindcss/postcss
+  - postcss
+  - autoprefixer

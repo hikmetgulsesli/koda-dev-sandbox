@@ -1,0 +1,19 @@
+=== US-001: Project setup and design tokens configuration ===
+COMPLETED: 2026-03-12T12:15:00+03:00
+FILES CHANGED:
+  - src/app/globals.css (design tokens, color system)
+  - src/app/layout.tsx (fonts: Plus Jakarta Sans, Work Sans)
+  - src/app/page.tsx (dashboard demo page)
+  - src/components/ui/button.tsx (shadcn/ui button)
+  - src/lib/utils.ts (utility functions)
+  - components.json (shadcn config)
+KEY DECISIONS:
+  - Used Tailwind CSS v4 with @theme inline for design tokens
+  - Configured blue (#2563eb) as primary, amber (#f59e0b) as accent
+  - Plus Jakarta Sans for headings, Work Sans for body
+  - Dark mode support included with proper contrast ratios
+  - Turkish language metadata for localization
+DEPENDENCIES ADDED:
+  - lucide-react (icon library)
+  - tw-animate-css (animations)
+  - shadcn/ui base components
