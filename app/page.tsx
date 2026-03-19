@@ -17,12 +17,23 @@ export default function Home() {
         </header>
 
         <section className="panel p-6 space-y-4">
-          <h2 
-            className="text-2xl font-semibold text-[var(--neon-lime)]"
-            style={{ fontFamily: "var(--font-space-grotesk)" }}
-          >
-            Three.js Canvas
-          </h2>
+          <div className="flex items-center justify-between">
+            <h2 
+              className="text-2xl font-semibold text-[var(--neon-lime)]"
+              style={{ fontFamily: "var(--font-space-grotesk)" }}
+            >
+              Three.js Canvas
+            </h2>
+            <a 
+              href="/terminal"
+              className="flex items-center gap-2 px-4 py-2 bg-[#0a0a0a] border border-[#0df20d]/30 rounded-lg text-[#0df20d] hover:border-[#0df20d] hover:shadow-[0_0_10px_rgba(13,242,13,0.3)] transition-all"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              Terminal
+            </a>
+          </div>
           <p className="text-[var(--text-secondary)]">
             Interactive rotating cube. Hover to change color, click to scale.
             Drag to rotate the view.
