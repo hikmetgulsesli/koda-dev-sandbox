@@ -1,0 +1,16 @@
+=== US-002: Canvas Foundation & Free Drawing ===
+COMPLETED: 2026-03-19T00:21:00+03:00
+FILES CHANGED: 
+  - lib/Canvas.ts (new)
+  - components/DrawingCanvas.tsx (new)
+  - lib/__tests__/Canvas.test.ts (new)
+  - __tests__/DrawingCanvas.test.tsx (new)
+KEY DECISIONS:
+  - Used Pointer Events API for unified mouse/touch handling
+  - Implemented ResizeObserver for responsive canvas
+  - Used quadraticCurveTo for smooth line interpolation
+  - requestAnimationFrame for 60fps rendering
+  - Added device pixel ratio support for crisp rendering
+DEPENDENCIES ADDED: None
+PR_URL: https://github.com/hikmetgulsesli/koda-dev-sandbox/pull/9
+BRANCH: f5feb649-0662-489e-b5ce-9fa5388fca9d-US-002

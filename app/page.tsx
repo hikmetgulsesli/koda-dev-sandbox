@@ -1,4 +1,5 @@
 import ThreeCanvas from "@/components/three/ThreeCanvas";
+import { SearchBar } from "@/components/search";
 
 export default function Home() {
   return (
@@ -15,6 +16,20 @@ export default function Home() {
             Next.js 14 + Three.js + Design Tokens
           </p>
         </header>
+
+        <section className="panel p-6 space-y-4">
+          <h2 
+            className="text-2xl font-semibold text-[var(--neon-lime)]"
+            style={{ fontFamily: "var(--font-space-grotesk)" }}
+          >
+            Şehir Arama
+          </h2>
+          <p className="text-[var(--text-secondary)]">
+            Debounce&apos;lu arama ile Türkiye şehirlerini arayın. Sonuçlar otomatik olarak
+            filtrelenir ve seçtiğiniz şehir tarayıcıda kaydedilir.
+          </p>
+          <SearchBar placeholder="Şehir ara... (örn: İstanbul, Ankara)" />
+        </section>
 
         <section className="panel p-6 space-y-4">
           <h2 

@@ -1,0 +1,39 @@
+=== US-003: LocalStorage hook for persisting city preference ===
+COMPLETED: 2026-03-19T10:44:30Z
+STORY_BRANCH: c2a7d5d3-US-003
+PR_URL: https://github.com/hikmetgulsesli/hava-durumu-dashboard/pull/3
+
+FILES CHANGED:
+- src/hooks/useLocalStorage.ts (new)
+- src/hooks/useLocalStorage.test.ts (new)
+- src/hooks/index.ts (new)
+- src/__tests__/setup.ts (new)
+- vitest.config.ts (new)
+- package.json (updated devDependencies and test script)
+
+KEY DECISIONS:
+1. Used useRef pattern to avoid dependency warnings with defaultValue in useEffect
+2. Implemented SSR safety check before accessing localStorage (typeof window !== 'undefined')
+3. Hook returns [value, setValue, removeValue] tuple matching the acceptance criteria
+4. Supports functional updates similar to useState
+5. Handles JSON parse errors gracefully by falling back to default value
+6. Handles localStorage quota exceeded errors gracefully (in-memory state still updates)
+
+DEPENDENCIES ADDED:
+- vitest
+- @testing-library/react
+- @testing-library/jest-dom
+- jsdom
+
+TEST RESULTS:
+All 16 tests passed:
+- Default value handling
+- Reading from localStorage
+- Updating values
+- Functional updates
+- Remove/reset functionality
+- Object/array/number/boolean types
+- SSR safety
+- JSON parse error handling
+- Quota exceeded handling
+- Weather-specific cases (weather-city, weather-unit keys)
